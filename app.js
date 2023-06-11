@@ -16,14 +16,17 @@ main.addEventListener("click", (e) => {
         }        
     } else if (e.target.classList.contains("fa-plus")) {
         e.target.previousElementSibling.innerText ++;
-        e.target.parentElement.parentElement.parentElement.parentElement.querySelector(".main__product-line-price").innerText = e.target.previousElementSibling.innerText * e.target.parentElement.parentElement.parentElement.parentElement.querySelector(".dollar").innerText
-        //! element.closest(".main__product-line-price") use this, instead for above shit 
+    
+        e.target.closest(".main__product").querySelector(".main__product-line-price").innerText = e.target.previousElementSibling.innerText * e.target.closest(".main__product-info").querySelector(".dollar").innerText
+        
+        
 
 
         // e.target.previousElementSibling.innerText
         // e.target.parentElement.parentElement.parentElement.parentElement.querySelector(".dollar").innerText
     } else if (e.target.classList.contains("fa-trash-can")){
-       e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove()
+    //    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove()
+       e.target.closest(".main__product").remove()
     }
     
 })
