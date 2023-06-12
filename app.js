@@ -48,11 +48,11 @@ main.addEventListener("click", (e) => {
 
 function updateAmount () {
     let totalAmount = document.getElementsByClassName("main__product-line-price");
-    // selectedProducts.innerText = totalAmount
+    
     let sum = 0;
     for(let i of totalAmount){
-         sum += +(i.innerText); //sum = sum + Number(i.innerText)
-        // console.log(i.innerText);
+         sum += +(i.innerText); 
+        
     }
-    return sum;
+    return sum.toFixed(2);
 }
