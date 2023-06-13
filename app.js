@@ -5,6 +5,7 @@
 
 
 const main = document.getElementById("products-preview")
+const nav = document.querySelector("nav")
 
 
 const amountOfProducts = document.querySelector(".amount-of-product")
@@ -49,6 +50,18 @@ main.addEventListener("click", (e) => {
     selectedProducts.innerHTML = updateAmount()
     finishOreder()
 })
+
+nav.addEventListener("click",(e) => {
+    if (e.target.classList.contains("fa-trash-can")){
+        document.querySelectorAll(".main__product");
+        for(let i of document.querySelectorAll(".main__product") ){
+            i.remove();
+            selectedProducts.innerText = updateAmount()
+            finishOreder();
+            amountOfProducts.innerText --;
+       }
+    }
+})
 // function subTotal(position) {
 //     e.target.closest(".main__product").querySelector(".main__product-line-price").innerText = (e.target.{position}.innerText * e.target.closest(".main__product-info").querySelector(".dollar").innerText).toFixed(2)
 // }
@@ -66,7 +79,7 @@ function updateAmount () {
 
 
 function finishOreder() {
-    (Number(selectedProducts.innerText) >= 3000) ? shipping.innerText = "0" : shipping.innerText = "25.99";
+    (Number(selectedProducts.innerText) >= 3000) || (Number(selectedProducts.innerText) == 0) ? shipping.innerText = "0" : shipping.innerText = "25.99";
     tax.innerText = (Number(selectedProducts.innerText) * 0.18).toFixed(2);
     total.innerText = (Number(shipping.innerText) + Number(tax.innerText) + Number(selectedProducts.innerText)).toFixed(2);
 
