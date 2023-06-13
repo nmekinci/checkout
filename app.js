@@ -49,7 +49,6 @@ main.addEventListener("click", (e) => {
     selectedProducts.innerHTML = updateAmount()
     finishOreder()
 })
-
 // function subTotal(position) {
 //     e.target.closest(".main__product").querySelector(".main__product-line-price").innerText = (e.target.{position}.innerText * e.target.closest(".main__product-info").querySelector(".dollar").innerText).toFixed(2)
 // }
