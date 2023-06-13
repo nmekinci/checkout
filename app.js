@@ -11,10 +11,19 @@ const amountOfProducts = document.querySelector(".amount-of-product")
 
 const selectedProducts = document.querySelector(".main__sum-price")
 
+const shipping = document.getElementById("cart-shipping").querySelector(".dollar")
+const tax = document.getElementById("cart-tax").querySelector(".dollar")
+const total = document.getElementById("cart-total").querySelector(".dollar")
+
+
 // let totalAmount = 0
 
 // ******** events
 
+window.addEventListener("load",(e) =>{
+    selectedProducts.innerHTML = updateAmount()
+    finishOreder()
+})
 
 main.addEventListener("click", (e) => {
     
@@ -39,7 +48,7 @@ main.addEventListener("click", (e) => {
     }else {}
     }
     selectedProducts.innerHTML = updateAmount()
-    
+    finishOreder()
 })
 
 // function subTotal(position) {
@@ -55,4 +64,12 @@ function updateAmount () {
         
     }
     return sum.toFixed(2);
+}
+
+
+function finishOreder() {
+    (Number(selectedProducts.innerText) >= 3000) ? shipping.innerText = "0" : shipping.innerText = "25.99";
+    tax.innerText = (Number(selectedProducts.innerText) * 0.18).toFixed(2);
+    total.innerText = (Number(shipping.innerText) + Number(tax.innerText) + Number(selectedProducts.innerText)).toFixed(2);
+
 }
