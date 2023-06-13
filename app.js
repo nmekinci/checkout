@@ -16,7 +16,6 @@ const tax = document.getElementById("cart-tax").querySelector(".dollar")
 const total = document.getElementById("cart-total").querySelector(".dollar")
 
 
-// let totalAmount = 0
 
 // ******** events
 
